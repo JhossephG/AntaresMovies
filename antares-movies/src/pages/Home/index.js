@@ -5,6 +5,8 @@ import './home.css';
 
 function Home() {
     const [movies, setMovies] = useState([]);
+    const [loading, setLoading] = useState(true);
+
     useEffect(()=>{
         async function loadMovies(){
           const response = await  api.get("movie/now_playing", {
@@ -16,11 +18,19 @@ function Home() {
           });
 
           setMovies(response.data.results.slice(0,15));
-
+          setLoading(false);
         }
         loadMovies();
 
     }, [])
+
+    if(loading){
+        return(
+            <div className="loading">
+                <h2>Loading movies...</h2>
+            </div>
+        )
+    }
 
     return(
         <div className='container'>
@@ -29,7 +39,7 @@ function Home() {
                     return(
                         <article key={movie.id}>
                             <strong>{movie.title}</strong>
-                            <img src={`https://image.tmdb.orh.t/p/original/${movie.poster_path}`} alt={movie.title} />
+                            <img src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} alt={movie.title} />
                             <Link to={`/movie/${movie.id}`}>Access</Link>
                         </article>
                     )

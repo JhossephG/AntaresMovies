@@ -1,0 +1,38 @@
+.mySM{
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mySM h1{
+margin-bottom: 15px;
+}
+
+.mySM span{
+    font-size: 20px;
+}
+
+.mySM ul{
+    width: 720px;
+}
+
+.mySM ul li {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.mySM div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mySM div a{
+    text-decoration: none;
+    color: blue;
+    margin-right: 15px;
+}
